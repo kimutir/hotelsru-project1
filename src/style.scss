@@ -138,6 +138,7 @@ button {
             z-index:2;
             overflow: hidden;
             display: none;
+            cursor: pointer;
 
             @media (max-width: 600px) {
                 display: block;
@@ -463,6 +464,7 @@ button {
                     height: 35px;
                     background: #FFFFFF;
                     border-radius: 30px;
+                    padding-left: 20px;
 
                     @media (max-width: 600px) {
                         width: 90%;

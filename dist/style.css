@@ -108,7 +108,8 @@ button {
       position: relative;
       z-index: 2;
       overflow: hidden;
-      display: none; }
+      display: none;
+      cursor: pointer; }
       @media (max-width: 600px) {
         .beauty-header__nav-top_burger {
           display: block; } }
@@ -355,7 +356,8 @@ button {
             width: 225px;
             height: 35px;
             background: #FFFFFF;
-            border-radius: 30px; }
+            border-radius: 30px;
+            padding-left: 20px; }
             @media (max-width: 600px) {
               .beauty-main__offers_contacts .offers-contacts__bonus_content .bonus__input {
                 width: 90%; } }
