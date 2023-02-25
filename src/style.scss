@@ -1,0 +1,625 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+$widthDesk: 70%;
+$widthMob: 90%;
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+button {
+    cursor: pointer;
+}
+
+@keyframes slide-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: 170px;
+    }
+  }
+@keyframes slide-down-catalog {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        height: 200px;
+    }
+  }
+
+.beauty__contact {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &_phone {
+        white-space: nowrap;
+    }
+
+    &_button {
+        cursor: pointer;
+        width: 170px;
+        height: 40px;
+        background: #FFFFFF;
+        border: 2px solid #66C05D;
+        border-radius: 40px;
+        margin-left: 40px;
+        line-height: 16px;
+    }
+}
+
+.beauty-wrapper {
+    width: $widthDesk;
+
+    @media (max-width: 770px) {
+        width: $widthMob;
+    }
+}
+
+.beauty-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .nav__list_item {
+        cursor: pointer;
+    }
+
+
+    &__nav-top {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .burger__list {
+            display: flex;
+            position: absolute;
+            width: 100vw;
+            height: 170px;
+            top: 48px;
+            background-color:#E5E5E5;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            z-index: 5;
+
+            animation-name: slide-down;
+            animation-duration: 0.4s;
+        }
+
+        &_bg {
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            background: #E5E5E5;
+            z-index: -1;
+        }
+
+        &_list {
+            list-style: none;
+            width: 447px;
+            height: 100%;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
+
+        &_burger {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index:2;
+            overflow: hidden;
+            display: none;
+
+            @media (max-width: 600px) {
+                display: block;
+            }
+            
+            span {
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #66C05D;
+                transition: all 0.5s;
+            }
+
+            span:nth-of-type(2) {
+                top: calc(50% - 5px);
+            }
+
+            span:nth-of-type(3) {
+                top: calc(50% + 5px);
+            }
+        }
+
+        &_burger.active span:nth-of-type(1) {
+            display: none;
+        }
+        &_burger.active span:nth-of-type(2) {
+            top: 50%;
+            transform: translate(-50%, 0%) rotate(45deg);  
+        }
+        &_burger.active span:nth-of-type(3) {
+            top: 50%;
+            transform: translate(-50%, 0%) rotate(-45deg); 
+        }
+    }
+
+    &__content {
+        width: 100%;
+        min-height: 119px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #EFEFEF;
+        align-items: center;
+
+         @media (max-width: 880px) {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        &_img {
+            margin-right: 20px;
+        }
+
+        &_title {
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 42px;
+            letter-spacing: 0.1em;
+            color: #66C05D;
+        }
+    }
+
+    &__nav-bottom {
+        height: 79px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .catalog__list {
+            display: flex;
+            position: absolute;
+            width: 100vw;
+            height: 200px;
+            top: 70px;
+            gap: 10px;
+            background-color:#fff;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            z-index: 5;
+            padding-bottom: 10px;
+
+            animation-name: slide-down-catalog;
+            animation-duration: 0.4s;
+        }
+
+        &_catalog-btn {
+            display: none;
+            cursor: pointer;
+            width: 80%;
+            height: 40px;
+            background: #FFFFFF;
+            border: 2px solid #66C05D;
+            border-radius: 40px;
+            line-height: 16px;
+
+            @media (max-width: 770px) {
+                display: block;
+            }
+        }
+
+        &_list {
+            width: 650px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            line-height: 19px;
+            list-style: none;
+
+            @media (max-width: 770px) {
+                display: none;
+            }
+
+        }
+    }
+}
+
+.beauty-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__chair {
+        width: 100%;
+        color: #FFFFFF;
+        height: 604px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        &_bg {
+            width: 100vw;
+            position: absolute;
+            background-image: url('./img/main-bg.png');
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            left: -100vw * (100% - $widthDesk)/100%/2;
+
+            @media (max-width: 770px) {
+                left: -100vw * (100% - $widthMob)/100%/2;
+            }
+        }
+
+        &_title {
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 56px;
+        }
+
+        &_button {
+            color: #FFFFFF;
+            width: 170px;
+            height: 40px;
+            background: #66C05D;
+            border: 2px solid #FFFFFF;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        &_description {
+            width: 320px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__offers {
+        min-height: 954px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &_bg {
+            width: 100vw;
+            height: 100%;
+            background: #EFEFEF;
+            position: absolute;
+            z-index: -1;
+            left: -100vw * (100% - $widthDesk)/100%/2;
+
+            @media (max-width: 770px) {
+                left: -100vw * (100% - $widthMob)/100%/2;
+            }
+        }
+
+        &_title {
+            margin-top: 80px;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+        }
+
+        &_list {
+            width: 100%;
+            min-height: 363px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 38px;
+            gap: 10px;
+            overflow-y: scroll;
+
+            .offers__item {
+                flex: 0 0 255px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #fff;
+
+                &_img {
+                    margin-top: 25px;
+                }
+
+                &_description {
+                    margin: 20px 30px;
+                    line-height: 20px;
+                    text-align: center;
+                }
+
+                &_price {
+                    font-weight: 500;
+                    font-size: 21px;
+                    line-height: 25px;
+                    text-align: center;
+                    letter-spacing: 0.05em;
+                    font-family: 'Roboto';
+                }
+                
+                &_buy-btn {
+                    margin-top: 20px;
+                    margin-bottom: 25px;
+                    width: 130px;
+                    min-height: 35px;
+                    background: #66C05D;
+                    border-radius: 30px;
+                    font-size: 14px;
+                    line-height: 16px;
+                    text-align: center;
+                    letter-spacing: 0.05em;
+                    color: #FFFFFF;
+
+                }
+            }
+        }
+
+        &_contacts {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+
+            @media (max-width: 1400px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 0px;
+            }
+
+
+            .offers-contacts__item {
+                flex: 0 0 540px;
+                height: 212px;
+                background: #66C05D;
+
+                @media (max-width: 1400px) {
+                    max-height: 180px;
+                    width: 80%;
+                    margin-bottom: 30px;
+                }
+                @media (max-width: 770px) {
+                    width: 100%;
+                }
+            }
+
+            .bonus__title {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 21px;
+                color: #FFFFFF;
+            }
+
+            .bonus__description {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;  
+                color: #FFFFFF;
+            }
+
+            .offers-contacts__bonus {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+
+               &_content {
+                width: 270px;
+                height: 100%;
+                margin-left: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .bonus__input {
+                    width: 225px;
+                    height: 35px;
+                    background: #FFFFFF;
+                    border-radius: 30px;
+
+                    @media (max-width: 600px) {
+                        width: 90%;
+                    }
+                }
+
+                .bonus__input::placeholder {
+                    padding-left: 20px;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #C4C4C4;
+                }
+
+               }
+               &_icon {
+                margin-right: 45px;
+
+                 @media (max-width: 600px) {
+                    display: none;
+                }
+
+               }
+
+            }
+
+            .offers-contacts__visit {
+                display: flex;
+
+                &_content {
+                    height: 100%;
+                    margin-left: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    .bonus__btn {
+                        width: 170px;
+                        height: 35px;
+                        background: #66C05D;
+                        border: 2px solid #FFFFFF;
+                        border-radius: 30px;
+                        color: #fff;
+
+                        @media (max-width: 600px) {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+
+           
+        }
+    }
+}
+
+.beauty-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    &__contacts {
+        min-height: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 1400px) {
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social {
+            flex:1 1 30%;
+            display: flex;
+            gap: 16px;
+
+            .social__icon-frame {
+                width: 45px;
+                height: 45px;
+                background: transparent;
+                border: 2px solid #66C05D;
+                border-radius: 50%;
+                position: relative;
+
+                .social__icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-47%) translateY(-45%);
+                    cursor: pointer;
+                }
+            }
+
+        
+        }
+
+        &_adress {
+            flex:1 1 30%;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        &_call {
+            flex:1 1 30%;
+            display: flex;
+            justify-content: flex-end;
+
+            .beauty__contact_phone {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__privacy {
+        width: 100%;
+        min-height: 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        @media (max-width: 770px) {
+            flex-direction: column;
+            min-height: 100px;
+            justify-content: space-around;
+        }
+
+        &_bg {
+            width: 100vw;
+            position: absolute;
+            height: 100%;
+            background: #EFEFEF;
+            z-index: -1;
+            left: -100vw * (100% - $widthDesk)/100%/2;
+
+            @media (max-width: 770px) {
+                left: -100vw * (100% - $widthMob)/100%/2;
+            }
+        }
+
+        &_text {
+            font-size: 12px;
+            line-height: 14px;
+            color: #828282;
+
+             @media (max-width: 770px) {
+                text-align: center;
+                line-height: 20px;
+            }
+        }
+
+       
+    }
+}
